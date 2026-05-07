@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Field Quick-Reference Card — BoilerOutageAcademy.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D2B45;
+    --navy-mid: #1A4060;
+    --orange: #E8611A;
+    --orange-light: #F2874A;
+    --cream: #F5F0E8;
+    --cream-dark: #E8E0D0;
+    --steel: #8CA0B0;
+    --white: #FFFFFF;
+    --text: #1C1C1C;
+    --text-muted: #5A6A78;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: 2px;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--steel);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px 0;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 500px; height: 500px;
+    border: 1px solid rgba(232,97,26,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 40px; right: -20px;
+    width: 300px; height: 300px;
+    border: 1px solid rgba(232,97,26,0.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 60px;
+    align-items: end;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--orange);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 30px; height: 1px;
+    background: var(--orange);
+  }
+  .hero-h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 7vw, 90px);
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+  }
+  .hero-h1 em {
+    color: var(--orange);
+    font-style: normal;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+    max-width: 480px;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+  .hero-bullets {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+  .hero-bullets li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    padding: 6px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .hero-bullets li:last-child { border-bottom: none; }
+  .bullet-icon {
+    color: var(--orange);
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .hero-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .author-avatar {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .author-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+  }
+  .author-title {
+    font-size: 12px;
+    color: var(--steel);
+    margin-top: 2px;
+  }
+
+  /* ── FORM CARD ── */
+  .form-panel {
+    background: var(--white);
+    border-radius: 16px 16px 0 0;
+    padding: 36px 32px 40px;
+    position: relative;
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.3);
+    align-self: end;
+  }
+  .form-badge {
+    position: absolute;
+    top: -14px; left: 32px;
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+  .form-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    margin-top: 8px;
+  }
+  .form-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .form-group { margin-bottom: 14px; }
+  .form-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    background: var(--cream);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+  }
+  .form-group input:focus {
+    border-color: var(--orange);
+    background: var(--white);
+  }
+  .form-group input::placeholder { color: #aab0b8; }
+  .btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--orange);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background 0.2s, transform 0.1s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-submit:hover { background: #C94F10; }
+  .btn-submit:active { transform: scale(0.99); }
+  .form-privacy {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .form-privacy svg {
+    display: inline; vertical-align: middle; margin-right: 4px;
+  }
+
+  /* ── WHAT'S INSIDE STRIP ── */
+  .inside-strip {
+    background: var(--orange);
+    padding: 18px 40px;
+  }
+  .inside-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .inside-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .inside-items {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .inside-item {
+    font-size: 13px;
+    color: var(--white);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .inside-item::before {
+    content: '—';
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+  }
+
+  /* ── PROOF SECTION ── */
+  .proof {
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+  .section-h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 52px);
+    color: var(--navy);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 48px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px 24px;
+    border: 1px solid var(--cream-dark);
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--orange);
+  }
+  .card-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--cream-dark);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── TOPICS SECTION ── */
+  .topics {
+    background: var(--navy);
+    padding: 80px 40px;
+  }
+  .topics-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .topics .section-label { color: var(--orange); }
+  .topics .section-h2 { color: var(--white); margin-bottom: 40px; }
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .topic-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    transition: background 0.2s;
+  }
+  .topic-row:hover { background: rgba(255,255,255,0.07); }
+  .topic-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--orange);
+    letter-spacing: 1px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .topic-text strong {
+    display: block;
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+  .topic-text span {
+    font-size: 12px;
+    color: var(--steel);
+    line-height: 1.5;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-left { }
+  .about-avatar-wrap {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    border: 3px solid var(--orange);
+  }
+  .about-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .about-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--orange);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .about-bio {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .stat-box {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--orange);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ── BOTTOM CTA ── */
+  .bottom-cta {
+    background: var(--navy);
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .bottom-cta::before {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    border: 1px solid rgba(232,97,26,0.12);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .bottom-cta-h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--white);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .bottom-cta-h2 span { color: var(--orange); }
+  .bottom-cta-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+  .btn-cta-big {
+    display: inline-block;
+    padding: 18px 48px;
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .btn-cta-big:hover { background: #C94F10; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080F16;
+    padding: 28px 40px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--steel);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .footer-logo span { color: var(--orange); }
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.6;
+  }
+
+  /* ── SUCCESS STATE ── */
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .success-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: #E8F8F0;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 14px;
+  }
+  .success-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .success-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.6s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.35s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.45s; }
+  .form-panel { animation: fadeUp 0.7s 0.2s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    nav { padding: 14px 20px; }
+    .hero { padding: 50px 20px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-panel { border-radius: 16px; }
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    .inside-strip { padding: 16px 20px; }
+    .proof, .topics-inner, .bottom-cta, footer { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Boiler<span>Outage</span>Academy</div>
+  <div class="nav-tag">WtE &amp; High-Fouling Boiler Engineering</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Free Field Resource</div>
+      <h1 class="hero-h1">Your Outage <em>Starts</em> Here.</h1>
+      <p class="hero-sub">Get the Boiler Outage Field Quick-Reference Card — the pocket guide every WtE and high-fouling boiler engineer needs on every major outage. Free. Instant. No fluff.</p>
+      <ul class="hero-bullets">
+        <li><span class="bullet-icon">→</span> 6 field screening thresholds — waterwalls, superheaters, economizers, refractory, welds</li>
+        <li><span class="bullet-icon">→</span> 8 engineering equations: hoop stress, corrosion rate, remaining life, Larson-Miller, NTV</li>
+        <li><span class="bullet-icon">→</span> RBI risk matrix and minimum response bands</li>
+        <li><span class="bullet-icon">→</span> Damage mechanism quick-ID: active oxidation, FAC, creep, erosion, refractory failure</li>
+        <li><span class="bullet-icon">→</span> Hydro readiness + startup release checklists</li>
+      </ul>
+      <div class="hero-author">
+        <div class="author-avatar">RES</div>
+        <div>
+          <div class="author-name">Rafael E. Sanchez</div>
+          <div class="author-title">Author, Boiler Outage Mastery · Field Engineering Manual</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-panel">
+      <div class="form-badge">100% Free</div>
+      <div class="form-title">Get Instant Access</div>
+      <p class="form-sub">Enter your details below. The Quick-Reference Card will be in your inbox in under 60 seconds.</p>
+
+      <script async data-uid="d1acdf70dd" src="https://rafael-e-sanchez.kit.com/d1acdf70dd/index.js"></script>
+
+      <p class="form-privacy">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        No spam, ever. Unsubscribe anytime. Your email is safe.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE STRIP -->
+<div class="inside-strip">
+  <div class="inside-inner">
+    <div class="inside-label">What's inside</div>
+    <div class="inside-items">
+      <div class="inside-item">Screening Thresholds</div>
+      <div class="inside-item">8 Engineering Equations</div>
+      <div class="inside-item">RBI Risk Bands</div>
+      <div class="inside-item">Damage Mechanism Quick-ID</div>
+      <div class="inside-item">Hydro &amp; Startup Checklists</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF CARDS -->
+<section class="proof">
+  <div class="section-label">Why it matters</div>
+  <h2 class="section-h2">Built for the Field.<br>Not the Classroom.</h2>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-title">Mechanism-based, not generic</div>
+      <p class="card-desc">WtE boilers don't fail randomly. They fail by mechanism — active oxidation, molten-salt attack, FAC, creep. This card helps you identify the right one fast.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-title">Decisions under pressure</div>
+      <p class="card-desc">When you're in the field at hour 14 of an outage and need to know if a tube requires replacement — you need answers in seconds, not chapters.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-title">Code-referenced, field-tested</div>
+      <p class="card-desc">Every threshold and equation is anchored to ASME BPVC, NBIC Part 3, EPRI guidance, and real field engineering practice — not theory.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <div class="card-title">Print it. Keep it in your bag.</div>
+      <p class="card-desc">Designed as a print-ready single-page card. Laminate it. Keep it in your outage bag alongside your PPE. Use it on every major outage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="topics">
+  <div class="topics-inner">
+    <div class="section-label">Card contents</div>
+    <h2 class="section-h2">5 Sections.<br>Everything You Need Onsite.</h2>
+    <div class="topics-grid">
+      <div class="topic-row">
+        <div class="topic-num">01</div>
+        <div class="topic-text">
+          <strong>Field Screening Thresholds</strong>
+          <span>Waterwall wall loss, bulging, superheater damage, economizer FAC, refractory hold criteria, weld QA release gates</span>
+        </div>
+      </div>
+      <div class="topic-row">
+        <div class="topic-num">02</div>
+        <div class="topic-text">
+          <strong>Key Screening Equations</strong>
+          <span>Hoop stress, corrosion rate, remaining life, thermal stress, Larson-Miller, CPI/SPI, Net Technical Value</span>
+        </div>
+      </div>
+      <div class="topic-row">
+        <div class="topic-num">03</div>
+        <div class="topic-text">
+          <strong>RBI Risk Matrix</strong>
+          <span>Probability × consequence bands: Low (1–6), Medium (8–12), High (15–25) with minimum required response for each</span>
+        </div>
+      </div>
+      <div class="topic-row">
+        <div class="topic-num">04</div>
+        <div class="topic-text">
+          <strong>Damage Mechanism Quick-ID</strong>
+          <span>Active oxidation, molten-salt attack, FAC, erosion, creep, and refractory dryout failure — field clues, evidence, corrective levers</span>
+        </div>
+      </div>
+      <div class="topic-row">
+        <div class="topic-num">05</div>
+        <div class="topic-text">
+          <strong>Hydro &amp; Startup Checklists</strong>
+          <span>Pre-hydro readiness gate, "Do Not Release to Service" checklist, and first 48–72 hour restart watch list by zone</span>
+        </div>
+      </div>
+      <div class="topic-row">
+        <div class="topic-num">+</div>
+        <div class="topic-text">
+          <strong>From the Full Handbook</strong>
+          <span>The Quick-Reference Card is extracted from Boiler Outage Mastery — the complete 200+ page field engineering manual for WtE outages</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-left">
+    <div class="about-avatar-wrap">RES</div>
+    <div class="about-name">Rafael E. Sanchez</div>
+    <div class="about-role">Author · Field Engineer · WtE Specialist</div>
+    <p class="about-bio">Boiler Outage Mastery was developed as a disciplined, field-practical, and technically rigorous reference for leaders responsible for planning, executing, inspecting, repairing, and restarting major boiler outages in waste-to-energy and other high-fouling steam generator service. Version 6 represents years of field refinement, code alignment, and real outage experience.</p>
+  </div>
+  <div class="about-stats">
+    <div class="stat-box">
+      <div class="stat-num">V6</div>
+      <div class="stat-label">Handbook version — field-refined over multiple editions</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">24</div>
+      <div class="stat-label">Chapters covering every phase of a major boiler outage</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Appendices with ready-to-use field templates and checklists</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Pages of mechanism-based field engineering guidance</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <h2 class="bottom-cta-h2">Get the Card.<br><span>Start Every Outage Right.</span></h2>
+  <p class="bottom-cta-sub">Free for WtE and high-fouling boiler engineers. No credit card. No catch.</p>
+  <a href="#signup-form" class="btn-cta-big" onclick="document.getElementById('fname').focus()">GET THE FREE CARD →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Boiler<span>Outage</span>Academy.com</div>
+  <div class="footer-copy">
+    Copyright &copy; 2026 Rafael E. Sanchez. All rights reserved.<br>
+    Screening tools only — not a substitute for ASME BPVC, NBIC, OEM requirements, or engineer-of-record authority.
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'SENDING...';
+  btn.disabled = true;
+  // Replace this timeout with your actual ConvertKit form action
+  setTimeout(() => {
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  }, 1200);
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>

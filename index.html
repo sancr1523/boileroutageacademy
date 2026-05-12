@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Field Quick-Reference Card — BoilerOutageAcademy.com</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -26,16 +27,37 @@
     padding: 0;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--cream);
     color: var(--text);
     overflow-x: hidden;
+    width: 100%;
   }
 
+  nav,
+  section,
+  footer,
+  .inside-strip {
+    width: 100%;
+  }
+
+  /* NAV */
   nav {
     background: var(--navy);
     padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-inner {
+    width: 100%;
+    max-width: 1100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,11 +82,14 @@
     text-transform: uppercase;
   }
 
+  /* HERO */
   .hero {
     background: var(--navy);
     position: relative;
     overflow: hidden;
-    padding: 80px 40px 0;
+    padding: 80px 40px;
+    display: flex;
+    justify-content: center;
   }
 
   .hero::before {
@@ -92,12 +117,21 @@
   }
 
   .hero-grid {
+    width: 100%;
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 420px;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
     gap: 60px;
-    align-items: end;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-left {
+    width: 100%;
+    max-width: 560px;
   }
 
   .hero-eyebrow {
@@ -204,16 +238,17 @@
     margin-top: 2px;
   }
 
+  /* FORM CARD */
   .form-panel {
     background: var(--white);
-  border-radius: 16px;
-  padding: 36px 32px 40px;
-  position: relative;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.28);
-  align-self: center;
-  width: 100%;
-  max-width: 420px;
-  justify-self: center;
+    border-radius: 16px;
+    padding: 36px 32px 40px;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.28);
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
   }
 
   .form-badge {
@@ -260,14 +295,17 @@
     margin-right: 4px;
   }
 
+  /* INSIDE STRIP */
   .inside-strip {
     background: var(--orange);
     padding: 18px 40px;
+    display: flex;
+    justify-content: center;
   }
 
   .inside-inner {
+    width: 100%;
     max-width: 1100px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     gap: 32px;
@@ -304,6 +342,7 @@
     font-size: 11px;
   }
 
+  /* PROOF SECTION */
   .proof {
     padding: 80px 40px;
     max-width: 1100px;
@@ -332,7 +371,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
   }
 
   .card {
@@ -376,6 +415,7 @@
     line-height: 1.6;
   }
 
+  /* TOPICS SECTION */
   .topics {
     background: var(--navy);
     padding: 80px 40px;
@@ -438,6 +478,7 @@
     line-height: 1.5;
   }
 
+  /* ABOUT */
   .about {
     padding: 80px 40px;
     max-width: 1100px;
@@ -517,6 +558,7 @@
     line-height: 1.4;
   }
 
+  /* BOTTOM CTA */
   .bottom-cta {
     background: var(--navy);
     padding: 80px 40px;
@@ -577,6 +619,7 @@
     background: #C94F10;
   }
 
+  /* FOOTER */
   footer {
     background: #080F16;
     padding: 28px 40px;
@@ -601,11 +644,13 @@
     line-height: 1.6;
   }
 
+  /* ANIMATIONS */
   @keyframes fadeUp {
     from {
       opacity: 0;
       transform: translateY(24px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -616,40 +661,66 @@
     animation: fadeUp 0.6s ease both;
   }
 
-  .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
-  .hero-left > *:nth-child(2) { animation-delay: 0.15s; }
-  .hero-left > *:nth-child(3) { animation-delay: 0.25s; }
-  .hero-left > *:nth-child(4) { animation-delay: 0.35s; }
-  .hero-left > *:nth-child(5) { animation-delay: 0.45s; }
+  .hero-left > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .hero-left > *:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .hero-left > *:nth-child(3) {
+    animation-delay: 0.25s;
+  }
+
+  .hero-left > *:nth-child(4) {
+    animation-delay: 0.35s;
+  }
+
+  .hero-left > *:nth-child(5) {
+    animation-delay: 0.45s;
+  }
 
   .form-panel {
     animation: fadeUp 0.7s 0.2s ease both;
   }
 
+  /* RESPONSIVE */
   @media (max-width: 800px) {
     nav {
       padding: 14px 20px;
+    }
+
+    .nav-inner {
       flex-direction: column;
       gap: 6px;
       align-items: flex-start;
     }
 
     .hero {
-      padding: 50px 20px 0;
+      padding: 50px 20px;
     }
 
     .hero-grid {
       grid-template-columns: 1fr;
       gap: 32px;
+      justify-items: center;
+    }
+
+    .hero-left {
+      max-width: 100%;
     }
 
     .form-panel {
       border-radius: 16px;
+      max-width: 420px;
+      width: 100%;
     }
 
     .about {
       grid-template-columns: 1fr;
       gap: 40px;
+      padding: 60px 20px;
     }
 
     .inside-strip {
@@ -674,8 +745,10 @@
 <body>
 
 <nav>
-  <div class="nav-logo">Boiler<span>Outage</span>Academy</div>
-  <div class="nav-tag">WtE &amp; High-Fouling Boiler Engineering</div>
+  <div class="nav-inner">
+    <div class="nav-logo">Boiler<span>Outage</span>Academy</div>
+    <div class="nav-tag">WtE &amp; High-Fouling Boiler Engineering</div>
+  </div>
 </nav>
 
 <section class="hero">
@@ -731,6 +804,7 @@
 <div class="inside-strip">
   <div class="inside-inner">
     <div class="inside-label">What's inside</div>
+
     <div class="inside-items">
       <div class="inside-item">Screening Thresholds</div>
       <div class="inside-item">8 Engineering Equations</div>
@@ -898,6 +972,7 @@
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
+
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
